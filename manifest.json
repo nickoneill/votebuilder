@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "votebuilder",
+  "description": "This extension makes votebuildering quicker",
+  "version": "0.0.4",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "make page better"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.nevadavan.com/MyListScriptGrid.aspx*","https://www.votebuilder.com/MyListScriptGrid.aspx*"],
+      "js": ["jquery-3.1.0.min.js", "content_script.js"]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "https://www.votebuilder.com/",
+    "https://www.nevadavan.com/"
+  ],
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "windows": "Ctrl+Shift+L",
+        "mac": "Command+Shift+L",
+        "chromeos": "Ctrl+Shift+L",
+        "linux": "Ctrl+Shift+L"
+      }
+    }
+  }
+}
